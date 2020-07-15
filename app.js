@@ -20,7 +20,7 @@ require('dotenv').config({ path: `${__dirname}/.env` });
 app.use(
   bodyParser.urlencoded({
     extended: true,
-  }),
+  })
 );
 
 dotenv.config({ path: `${__dirname}/.env` });
@@ -30,6 +30,9 @@ app.use(express.static(path.join(__dirname, 'upload')));
 
 app.use('/', routes);
 
-app.listen(config.PORT, () => console.log(`App is running at http://localhost:${config.PORT}`));
+app.listen(config.PORT, () =>
+  // eslint-disable-next-line no-console
+  console.log(`App is running at http://localhost:${config.PORT}`)
+);
 
 module.exports = app;

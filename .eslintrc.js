@@ -1,22 +1,24 @@
 module.exports = {
   root: true,
+  env: {
+    node: true,
+  },
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module',
   },
-  extends: ['airbnb-base'],
-  env: {
-    node: true,
-  },
+  plugins: ['prettier'],
+  extends: ['airbnb-base', 'plugin:prettier/recommended'],
   rules: {
-    'comma-dangle': [2, 'always-multiline'],
     complexity: 1,
   },
-  overrides: [{
-    files: ['routes/**/*.js'],
+  overrides: [
+    {
+      files: ['routes/**/*.js'],
 
-    rules: {
-      'import/prefer-default-export': 0,
+      rules: {
+        'import/prefer-default-export': 0,
+      },
     },
-  }],
+  ],
 };

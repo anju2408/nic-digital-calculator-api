@@ -17,7 +17,7 @@ handlebars.registerHelper('inc', (value) => parseInt(value, 10) + 1);
 handlebars.registerHelper('img', (value) => {
   const image = `data:image/png;base64,${fs
     .readFileSync(
-      path.join(process.cwd(), './templates/images/', images[value]),
+      path.join(process.cwd(), './templates/images/', images[value])
     )
     .toString('base64')}`;
   return image;
@@ -29,25 +29,25 @@ handlebars.registerHelper('img', (value) => {
  */
 function compileHbs(pdfData) {
   const assessmentHbs = fs.readFileSync(
-    path.join(process.cwd(), './templates/assessment.hbs'),
+    path.join(process.cwd(), './templates/assessment.hbs')
   );
   const styleSheet = fs.readFileSync(
-    path.join(process.cwd(), './templates/styles/bootstrap.min.css'),
+    path.join(process.cwd(), './templates/styles/bootstrap.min.css')
   );
   const styleSheet2 = fs.readFileSync(
-    path.join(process.cwd(), './templates/styles/style.css'),
+    path.join(process.cwd(), './templates/styles/style.css')
   );
   const logo = `data:image/png;base64,${fs
     .readFileSync(path.join(process.cwd(), './templates/images/Logo.png'))
     .toString('base64')}`;
   const banner = `data:image/png;base64,${fs
     .readFileSync(
-      path.join(process.cwd(), './templates/images/home-banner.png'),
+      path.join(process.cwd(), './templates/images/home-banner.png')
     )
     .toString('base64')}`;
   const female = `data:image/png;base64,${fs
     .readFileSync(
-      path.join(process.cwd(), './templates/images/photo-female.png'),
+      path.join(process.cwd(), './templates/images/photo-female.png')
     )
     .toString('base64')}`;
   const idea = `data:image/png;base64,${fs

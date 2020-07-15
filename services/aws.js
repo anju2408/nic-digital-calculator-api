@@ -10,7 +10,7 @@ module.exports.uploadPdfBuffer = async (pdfBuffer) => {
     accessKeyId: process.env.CLOUDCUBE_ACCESS_KEY_ID,
     secretAccessKey: process.env.CLOUDCUBE_SECRET_ACCESS_KEY,
   });
-  
+
   const fileName = `vztyis1bvhuk/public/NICE-InContact-Recommendation-Report-${Date.now()}.pdf`;
   const filePath = `${process.env.CLOUDCUBE_URL}/${fileName}`;
 
