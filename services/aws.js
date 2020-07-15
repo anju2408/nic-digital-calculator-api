@@ -11,10 +11,15 @@ module.exports.uploadPdfBuffer = async (pdfBuffer) => {
     secretAccessKey: process.env.CLOUDCUBE_SECRET_ACCESS_KEY,
   });
 
-  const fileName = `vztyis1bvhuk/public/NICE-InContact-Recommendation-Report-${Date.now()}.pdf`;
+  const prefix = 'vztyis1bvhuk';
+  const fileName = `public/NICE-InContact-Recommendation-Report-${Date.now()}.pdf`;
   const filePath = `${process.env.CLOUDCUBE_URL}/${fileName}`;
 
-  const uploadParams = { Bucket: 'cloud-cube', Key: fileName, Body: pdfBuffer };
+  const uploadParams = {
+    Bucket: 'cloud-cube',
+    Key: `${prefix}/${fileName}`,
+    Body: pdfBuffer,
+  };
 
   s3.upload(uploadParams, (err) => {
     if (err) {
