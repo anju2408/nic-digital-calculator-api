@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14
 
 LABEL Version="1.0.0"
 LABEL Name="NICE InContact"

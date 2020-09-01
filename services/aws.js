@@ -21,11 +21,12 @@ module.exports.uploadPdfBuffer = async (pdfBuffer) => {
     Body: pdfBuffer,
   };
 
-  s3.upload(uploadParams, (err) => {
-    if (err) {
-      // eslint-disable-next-line no-console
-      console.log('Error', err);
-    }
-  });
+  try {
+    await s3.upload(uploadParams);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log('Error', error);
+  }
+
   return filePath;
 };
