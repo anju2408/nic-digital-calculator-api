@@ -7,17 +7,17 @@ const aws = require('aws-sdk');
  */
 module.exports.uploadPdfBuffer = async (pdfBuffer) => {
   const s3 = new aws.S3({
-    accessKeyId: process.env.CLOUDCUBE_ACCESS_KEY_ID,
-    secretAccessKey: process.env.CLOUDCUBE_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.BUCKETEER_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.BUCKETEER_AWS_SECRET_ACCESS_KEY,
+    region: process.env.BUCKETEER_AWS_REGION,
   });
 
-  const prefix = 'vztyis1bvhuk';
   const fileName = `public/NICE-InContact-Recommendation-Report-${Date.now()}.pdf`;
-  const filePath = `${process.env.CLOUDCUBE_URL}/${fileName}`;
+  const filePath = `${process.env.BUCKETEER_URL}/${fileName}`;
 
   const uploadParams = {
-    Bucket: 'cloud-cube',
-    Key: `${prefix}/${fileName}`,
+    Bucket: process.env.BUCKETEER_BUCKET_NAME,
+    Key: fileName,
     Body: pdfBuffer,
   };
 
