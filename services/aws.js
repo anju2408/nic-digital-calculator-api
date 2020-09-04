@@ -13,7 +13,6 @@ module.exports.uploadPdfBuffer = async (pdfBuffer) => {
 
   const prefix = 'vztyis1bvhuk';
   const fileName = `public/NICE-InContact-Recommendation-Report-${Date.now()}.pdf`;
-  const filePath = `${process.env.CLOUDCUBE_URL}/${fileName}`;
 
   const uploadParams = {
     Bucket: 'cloud-cube',
@@ -22,11 +21,10 @@ module.exports.uploadPdfBuffer = async (pdfBuffer) => {
   };
 
   try {
-    await s3.upload(uploadParams);
+    const result = await s3.upload(uploadParams).promise();
+    return result.Location;
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log('Error', error);
   }
-
-  return filePath;
 };
