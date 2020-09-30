@@ -3,13 +3,13 @@ NICE InContact Calculator API
 
 # Installation
 
-## Prerequisites
+## Prerequisites:-
 
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## Local installation
 
-### Regular installation
+### Regular installation:-
 
 - Please install Node.js on your machine: https://nodejs.org/en/download/
 - Go to the folder with the project
